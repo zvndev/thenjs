@@ -1,0 +1,25 @@
+{
+  "name": "thenjs-monorepo",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "ThenJS — Meta-framework for What Framework",
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "tsc -b --watch",
+    "test": "vitest",
+    "lint": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0",
+    "@types/node": "^22.0.0"
+  }
+}
