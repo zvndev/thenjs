@@ -1,4 +1,4 @@
-// @thenjs/server — Tests for ThenApp
+// @vura/server — Tests for ThenApp
 
 import { describe, it, expect } from 'vitest';
 import { createApp } from '../src/app.js';

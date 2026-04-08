@@ -1,5 +1,5 @@
 {
-  "name": "ThenJS",
+  "name": "Vura",
   "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
   "postCreateCommand": "npm install",
   "customizations": {

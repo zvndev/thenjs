@@ -1,17 +1,17 @@
-# @thenjs/schema
+# @vura/schema
 
-Standard schema adapter for ThenJS. Normalizes Zod, TypeBox, and Valibot schemas to a common `StandardSchema` interface used across the framework for validation and OpenAPI generation.
+Standard schema adapter for Vura. Normalizes Zod, TypeBox, and Valibot schemas to a common `StandardSchema` interface used across the framework for validation and OpenAPI generation.
 
 ## Install
 
 ```
-npm install @thenjs/schema
+npm install @vura/schema
 ```
 
 ## Usage
 
 ```typescript
-import { fromZod, fromTypeBox, fromValibot, fromSchema } from '@thenjs/schema';
+import { fromZod, fromTypeBox, fromValibot, fromSchema } from '@vura/schema';
 
 // --- Zod ---
 import { z } from 'zod';
@@ -49,7 +49,7 @@ if (result.success) {
   console.log(result.issues); // SchemaIssue[]
 }
 
-// JSON Schema (used by @thenjs/rpc for OpenAPI generation)
+// JSON Schema (used by @vura/rpc for OpenAPI generation)
 const jsonSchema = userSchema.toJsonSchema();
 ```
 

@@ -1,5 +1,5 @@
 name: Bug Report
-description: Report a bug in ThenJS
+description: Report a bug in Vura
 title: "[Bug]: "
 labels: ["bug"]
 body:
@@ -32,14 +32,14 @@ body:
     attributes:
       label: Package
       options:
-        - thenjs
-        - "@thenjs/server"
-        - "@thenjs/rpc"
-        - "@thenjs/schema"
-        - "@thenjs/build"
-        - "@thenjs/adapter-node"
-        - "@thenjs/adapter-vercel"
-        - create-then
+        - vura
+        - "@vura/server"
+        - "@vura/rpc"
+        - "@vura/schema"
+        - "@vura/build"
+        - "@vura/adapter-node"
+        - "@vura/adapter-vercel"
+        - create-vura
     validations:
       required: true
 

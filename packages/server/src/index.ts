@@ -1,4 +1,4 @@
-// @thenjs/server — Hook-based server runtime on Web Standard APIs
+// @vura/server — Hook-based server runtime on Web Standard APIs
 
 export { ThenApp, createApp } from './app.js';
 export { createReply } from './reply.js';

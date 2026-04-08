@@ -1,6 +1,6 @@
-// @thenjs/build — Production build pipeline
+// @vura/build — Production build pipeline
 
-import type { ThenConfig } from '@thenjs/server';
+import type { ThenConfig } from '@vura/server';
 
 export interface BuildOptions {
   config: ThenConfig;
@@ -53,16 +53,16 @@ export async function build(options: BuildOptions): Promise<BuildResult> {
   // 1. Resolve adapter
   const adapterName = resolveAdapter(config.build?.adapter ?? 'auto');
 
-  console.log(`[thenjs] Building for ${adapterName}...`);
-  console.log(`[thenjs] Root: ${root}`);
-  console.log(`[thenjs] Output: ${outDir}`);
+  console.log(`[vura] Building for ${adapterName}...`);
+  console.log(`[vura] Root: ${root}`);
+  console.log(`[vura] Output: ${outDir}`);
 
   // 2. Run Vite builds (client + server)
   const { build: viteBuild } = await import('vite');
   const { thenVitePlugin } = await import('./vite-plugin.js');
 
   // Client build
-  console.log('[thenjs] Building client...');
+  console.log('[vura] Building client...');
   await viteBuild({
     root,
     plugins: thenVitePlugin({ config }),
@@ -76,7 +76,7 @@ export async function build(options: BuildOptions): Promise<BuildResult> {
   });
 
   // Server build
-  console.log('[thenjs] Building server...');
+  console.log('[vura] Building server...');
   await viteBuild({
     root,
     plugins: thenVitePlugin({ config }),
@@ -93,7 +93,7 @@ export async function build(options: BuildOptions): Promise<BuildResult> {
   });
 
   // 3. Static pre-rendering for static/hybrid pages
-  console.log('[thenjs] Pre-rendering static pages...');
+  console.log('[vura] Pre-rendering static pages...');
   const staticPages = await prerenderStaticPages(root, outDir);
 
   // 4. Build route manifest
@@ -101,7 +101,7 @@ export async function build(options: BuildOptions): Promise<BuildResult> {
   const tasks = await buildTaskManifest(root);
 
   // 5. Run adapter transform
-  console.log(`[thenjs] Running ${adapterName} adapter...`);
+  console.log(`[vura] Running ${adapterName} adapter...`);
   const adapter = await loadAdapter(adapterName);
   await adapter.buildEnd({
     serverEntry: `${outDir}/server/entry-server.js`,
@@ -111,7 +111,7 @@ export async function build(options: BuildOptions): Promise<BuildResult> {
     tasks,
   });
 
-  console.log('[thenjs] Build complete!');
+  console.log('[vura] Build complete!');
 
   return {
     clientDir: `${outDir}/client`,
@@ -128,16 +128,16 @@ function resolveAdapter(adapter: string): string {
   if (adapter === 'auto') {
     return detectAdapter();
   }
-  if (adapter === 'node') return '@thenjs/adapter-node';
-  if (adapter === 'vercel') return '@thenjs/adapter-vercel';
+  if (adapter === 'node') return '@vura/adapter-node';
+  if (adapter === 'vercel') return '@vura/adapter-vercel';
   return adapter;
 }
 
 function detectAdapter(): string {
-  if (process.env.VERCEL) return '@thenjs/adapter-vercel';
-  if (process.env.NETLIFY) return '@thenjs/adapter-netlify';
-  if (process.env.CF_PAGES) return '@thenjs/adapter-cloudflare';
-  return '@thenjs/adapter-node';
+  if (process.env.VERCEL) return '@vura/adapter-vercel';
+  if (process.env.NETLIFY) return '@vura/adapter-netlify';
+  if (process.env.CF_PAGES) return '@vura/adapter-cloudflare';
+  return '@vura/adapter-node';
 }
 
 async function loadAdapter(name: string): Promise<{
@@ -153,7 +153,7 @@ async function loadAdapter(name: string): Promise<{
     const mod = await import(name);
     return mod.default ?? mod;
   } catch {
-    console.warn(`[thenjs] Adapter "${name}" not found, using no-op adapter`);
+    console.warn(`[vura] Adapter "${name}" not found, using no-op adapter`);
     return {
       async buildEnd() {
         // No-op

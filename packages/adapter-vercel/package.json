@@ -1,5 +1,5 @@
 {
-  "name": "@thenjs/adapter-vercel",
+  "name": "@vura/adapter-vercel",
   "version": "0.1.0",
   "type": "module",
   "license": "MIT",
@@ -19,6 +19,6 @@
     "prepublishOnly": "tsc -b"
   },
   "peerDependencies": {
-    "@thenjs/build": "*"
+    "@vura/build": "*"
   }
 }

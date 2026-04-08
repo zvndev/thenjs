@@ -1,13 +1,13 @@
-// thenjs — Main package re-exports
+// vura — Main package re-exports
 
 // Server
-export { createApp, defineConfig, loadConfig } from '@thenjs/server';
-export type { ThenConfig, ThenApp, ThenRequest, ThenReply } from '@thenjs/server';
+export { createApp, defineConfig, loadConfig } from '@vura/server';
+export type { ThenConfig, ThenApp, ThenRequest, ThenReply } from '@vura/server';
 
 // Build
-export { thenVitePlugin } from '@thenjs/build';
-export type { ThenVitePluginOptions } from '@thenjs/build';
+export { thenVitePlugin } from '@vura/build';
+export type { ThenVitePluginOptions } from '@vura/build';
 
 // RPC
-export { procedure, router, createRPCClient } from '@thenjs/rpc';
-export type { RPCContext, ProcedureDefinition, RouterDefinition } from '@thenjs/rpc';
+export { procedure, router, createRPCClient } from '@vura/rpc';
+export type { RPCContext, ProcedureDefinition, RouterDefinition } from '@vura/rpc';

@@ -8,15 +8,15 @@ describe('thenVitePlugin', () => {
     expect(plugins.length).toBeGreaterThanOrEqual(1);
   });
 
-  it('returns plugin named "thenjs"', () => {
+  it('returns plugin named "vura"', () => {
     const plugins = thenVitePlugin();
     const names = plugins.map((p) => p.name);
-    expect(names).toContain('thenjs');
+    expect(names).toContain('vura');
   });
 
   it('plugin has required Vite hooks: configResolved, configureServer, resolveId, load', () => {
     const plugins = thenVitePlugin();
-    const plugin = plugins.find((p) => p.name === 'thenjs')!;
+    const plugin = plugins.find((p) => p.name === 'vura')!;
     expect(plugin).toBeDefined();
     expect(plugin).toHaveProperty('configResolved');
     expect(plugin).toHaveProperty('configureServer');
@@ -25,59 +25,59 @@ describe('thenVitePlugin', () => {
   });
 
   describe('resolveId', () => {
-    it('resolves "virtual:then-routes" to "\\0virtual:then-routes"', () => {
+    it('resolves "virtual:vura-routes" to "\\0virtual:vura-routes"', () => {
       const plugins = thenVitePlugin();
-      const plugin = plugins.find((p) => p.name === 'thenjs')!;
-      const result = (plugin as any).resolveId('virtual:then-routes');
-      expect(result).toBe('\0virtual:then-routes');
+      const plugin = plugins.find((p) => p.name === 'vura')!;
+      const result = (plugin as any).resolveId('virtual:vura-routes');
+      expect(result).toBe('\0virtual:vura-routes');
     });
 
-    it('resolves "virtual:then-manifest" to "\\0virtual:then-manifest"', () => {
+    it('resolves "virtual:vura-manifest" to "\\0virtual:vura-manifest"', () => {
       const plugins = thenVitePlugin();
-      const plugin = plugins.find((p) => p.name === 'thenjs')!;
-      const result = (plugin as any).resolveId('virtual:then-manifest');
-      expect(result).toBe('\0virtual:then-manifest');
+      const plugin = plugins.find((p) => p.name === 'vura')!;
+      const result = (plugin as any).resolveId('virtual:vura-manifest');
+      expect(result).toBe('\0virtual:vura-manifest');
     });
 
-    it('resolves "virtual:then-rpc-client" to "\\0virtual:then-rpc-client"', () => {
+    it('resolves "virtual:vura-rpc-client" to "\\0virtual:vura-rpc-client"', () => {
       const plugins = thenVitePlugin();
-      const plugin = plugins.find((p) => p.name === 'thenjs')!;
-      const result = (plugin as any).resolveId('virtual:then-rpc-client');
-      expect(result).toBe('\0virtual:then-rpc-client');
+      const plugin = plugins.find((p) => p.name === 'vura')!;
+      const result = (plugin as any).resolveId('virtual:vura-rpc-client');
+      expect(result).toBe('\0virtual:vura-rpc-client');
     });
 
     it('returns null for unknown IDs', () => {
       const plugins = thenVitePlugin();
-      const plugin = plugins.find((p) => p.name === 'thenjs')!;
+      const plugin = plugins.find((p) => p.name === 'vura')!;
       const result = (plugin as any).resolveId('some-unknown-module');
       expect(result).toBeNull();
     });
   });
 
   describe('load', () => {
-    it('returns route module content for "\\0virtual:then-routes"', () => {
+    it('returns route module content for "\\0virtual:vura-routes"', () => {
       const plugins = thenVitePlugin();
-      const plugin = plugins.find((p) => p.name === 'thenjs')!;
-      const result = (plugin as any).load('\0virtual:then-routes');
+      const plugin = plugins.find((p) => p.name === 'vura')!;
+      const result = (plugin as any).load('\0virtual:vura-routes');
       expect(typeof result).toBe('string');
       expect(result).toContain('routes');
       expect(result).toContain('apiRoutes');
       expect(result).toContain('export');
     });
 
-    it('returns manifest module content for "\\0virtual:then-manifest"', () => {
+    it('returns manifest module content for "\\0virtual:vura-manifest"', () => {
       const plugins = thenVitePlugin();
-      const plugin = plugins.find((p) => p.name === 'thenjs')!;
-      const result = (plugin as any).load('\0virtual:then-manifest');
+      const plugin = plugins.find((p) => p.name === 'vura')!;
+      const result = (plugin as any).load('\0virtual:vura-manifest');
       expect(typeof result).toBe('string');
       expect(result).toContain('manifest');
       expect(result).toContain('export');
     });
 
-    it('returns RPC client module content for "\\0virtual:then-rpc-client"', () => {
+    it('returns RPC client module content for "\\0virtual:vura-rpc-client"', () => {
       const plugins = thenVitePlugin();
-      const plugin = plugins.find((p) => p.name === 'thenjs')!;
-      const result = (plugin as any).load('\0virtual:then-rpc-client');
+      const plugin = plugins.find((p) => p.name === 'vura')!;
+      const result = (plugin as any).load('\0virtual:vura-rpc-client');
       expect(typeof result).toBe('string');
       expect(result).toContain('createRPCClient');
       expect(result).toContain('export');
@@ -85,7 +85,7 @@ describe('thenVitePlugin', () => {
 
     it('returns null for unknown IDs', () => {
       const plugins = thenVitePlugin();
-      const plugin = plugins.find((p) => p.name === 'thenjs')!;
+      const plugin = plugins.find((p) => p.name === 'vura')!;
       const result = (plugin as any).load('some-unknown-module');
       expect(result).toBeNull();
     });

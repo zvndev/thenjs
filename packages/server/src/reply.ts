@@ -1,4 +1,4 @@
-// @thenjs/server — ThenReply implementation
+// @vura/server — ThenReply implementation
 
 import type { ThenReply } from './types.js';
 

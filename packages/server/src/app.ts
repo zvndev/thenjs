@@ -1,4 +1,4 @@
-// @thenjs/server — ThenApp: hook-based server with plugin encapsulation
+// @vura/server — ThenApp: hook-based server with plugin encapsulation
 
 import { Router } from './router.js';
 import { createReply } from './reply.js';
@@ -316,7 +316,7 @@ export class ThenApp {
     earlyResponse = await this.runHooks(this.rootContext.hooks.preValidation, request, reply);
     if (earlyResponse) return earlyResponse;
 
-    // 5. Schema validation (TODO: integrate with @thenjs/schema)
+    // 5. Schema validation (TODO: integrate with @vura/schema)
 
     // 6. preHandler hooks (route-specific inherit encapsulation hooks)
     earlyResponse = await this.runHooks(route.hooks.preHandler, request, reply);

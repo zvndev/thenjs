@@ -1,11 +1,11 @@
-# @thenjs/server
+# @vura/server
 
-Hook-based server runtime built on Web Standard APIs (Request/Response). Provides routing, lifecycle hooks, plugin encapsulation, and configuration for ThenJS applications.
+Hook-based server runtime built on Web Standard APIs (Request/Response). Provides routing, lifecycle hooks, plugin encapsulation, and configuration for Vura applications.
 
 ## Install
 
 ```
-npm install @thenjs/server
+npm install @vura/server
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ npm install @thenjs/server
 ### Creating an App
 
 ```typescript
-import { createApp } from '@thenjs/server';
+import { createApp } from '@vura/server';
 
 const app = createApp({ prefix: '/api' });
 
@@ -58,7 +58,7 @@ Hook order: `onRequest` -> `preParsing` -> body parse -> `preValidation` -> `pre
 Plugins run in an encapsulated context. Hooks and decorators registered inside a plugin do not leak to sibling plugins:
 
 ```typescript
-import type { PluginContext } from '@thenjs/server';
+import type { PluginContext } from '@vura/server';
 
 async function authPlugin(app: PluginContext, opts: Record<string, unknown>) {
   app.decorateRequest('user', null);
@@ -78,7 +78,7 @@ await app.register(authPlugin, { prefix: '/auth' });
 ### Configuration
 
 ```typescript
-import { defineConfig } from '@thenjs/server';
+import { defineConfig } from '@vura/server';
 
 export default defineConfig({
   server: {
@@ -105,7 +105,7 @@ export default defineConfig({
 | `Router` | Radix-tree router with param (`:id`) and wildcard (`*path`) support |
 | `createReply()` | Build a `ThenReply` with chainable `.status()`, `.header()`, `.json()`, `.html()`, `.stream()`, `.redirect()` |
 | `defineConfig(config)` | Type-safe config helper |
-| `loadConfig(root?)` | Load `then.config.{ts,js,mjs}` with defaults |
+| `loadConfig(root?)` | Load `vura.config.{ts,js,mjs}` with defaults |
 
 ### Route Methods
 

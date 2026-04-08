@@ -1,14 +1,14 @@
-# @thenjs/adapter-node
+# @vura/adapter-node
 
-Node.js deployment adapter for ThenJS. Generates a standalone `node:http` server entry from the build output, and provides a `serve()` function for running a `ThenApp` at runtime.
+Node.js deployment adapter for Vura. Generates a standalone `node:http` server entry from the build output, and provides a `serve()` function for running a `ThenApp` at runtime.
 
 ## Install
 
 ```
-npm install @thenjs/adapter-node
+npm install @vura/adapter-node
 ```
 
-Peer dependencies: `@thenjs/server`, `@thenjs/build`.
+Peer dependencies: `@vura/server`, `@vura/build`.
 
 ## Usage
 
@@ -17,8 +17,8 @@ Peer dependencies: `@thenjs/server`, `@thenjs/build`.
 Set the adapter in your config and the build pipeline will invoke it automatically:
 
 ```typescript
-// then.config.ts
-import { defineConfig } from 'thenjs';
+// vura.config.ts
+import { defineConfig } from 'vura';
 
 export default defineConfig({
   build: {
@@ -27,7 +27,7 @@ export default defineConfig({
 });
 ```
 
-After `thenjs build`, the adapter generates a standalone server entry at `dist/server/` that:
+After `vura build`, the adapter generates a standalone server entry at `dist/server/` that:
 
 1. Serves static client assets with immutable cache headers
 2. Serves pre-rendered HTML from the static directory
@@ -45,8 +45,8 @@ node dist/server/entry-server.js
 Use `serve()` to start a Node HTTP server from a `ThenApp` instance directly (useful for custom setups):
 
 ```typescript
-import { createApp } from '@thenjs/server';
-import { serve } from '@thenjs/adapter-node';
+import { createApp } from '@vura/server';
+import { serve } from '@vura/adapter-node';
 
 const app = createApp();
 
@@ -66,7 +66,7 @@ serve(app, {
 For advanced use, the package also exports low-level helpers:
 
 ```typescript
-import { nodeToWebRequest, writeWebResponse } from '@thenjs/adapter-node';
+import { nodeToWebRequest, writeWebResponse } from '@vura/adapter-node';
 
 // Convert a Node IncomingMessage + URL to a Web Standard Request
 const webReq = nodeToWebRequest(req, url);

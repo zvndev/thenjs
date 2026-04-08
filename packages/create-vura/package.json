@@ -1,12 +1,12 @@
 {
-  "name": "create-then",
+  "name": "create-vura",
   "version": "0.1.0",
   "type": "module",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "create-then": "dist/index.js"
+    "create-vura": "dist/index.js"
   },
   "exports": {
     ".": {

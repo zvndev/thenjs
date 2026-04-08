@@ -1,19 +1,19 @@
-# thenjs
+# vura
 
-The main package for ThenJS -- a meta-framework for What Framework. Provides the CLI for development, production builds, and preview, plus re-exports from `@thenjs/server`, `@thenjs/build`, and `@thenjs/rpc`.
+The main package for Vura -- a meta-framework for What Framework. Provides the CLI for development, production builds, and preview, plus re-exports from `@vura/server`, `@vura/build`, and `@vura/rpc`.
 
 ## Install
 
 ```
-npm install thenjs
+npm install vura
 ```
 
 ## CLI
 
 ```
-npx thenjs dev          # Start dev server with HMR (default command)
-npx thenjs build        # Production build (client + server + static)
-npx thenjs preview      # Preview the production build locally
+npx vura dev          # Start dev server with HMR (default command)
+npx vura build        # Production build (client + server + static)
+npx vura preview      # Preview the production build locally
 ```
 
 ### Options
@@ -28,10 +28,10 @@ npx thenjs preview      # Preview the production build locally
 
 ## Configuration
 
-Create a `then.config.ts` at your project root:
+Create a `vura.config.ts` at your project root:
 
 ```typescript
-import { defineConfig } from 'thenjs';
+import { defineConfig } from 'vura';
 
 export default defineConfig({
   server: {
@@ -60,31 +60,31 @@ export default defineConfig({
 
 ## Re-exports
 
-`thenjs` re-exports the most common APIs so you can import from a single package:
+`vura` re-exports the most common APIs so you can import from a single package:
 
 ```typescript
 // Server
-import { createApp, defineConfig, loadConfig } from 'thenjs';
-import type { ThenConfig, ThenApp, ThenRequest, ThenReply } from 'thenjs';
+import { createApp, defineConfig, loadConfig } from 'vura';
+import type { ThenConfig, ThenApp, ThenRequest, ThenReply } from 'vura';
 
 // Build
-import { thenVitePlugin } from 'thenjs';
-import type { ThenVitePluginOptions } from 'thenjs';
+import { thenVitePlugin } from 'vura';
+import type { ThenVitePluginOptions } from 'vura';
 
 // RPC
-import { procedure, router, createRPCClient } from 'thenjs';
-import type { RPCContext, ProcedureDefinition, RouterDefinition } from 'thenjs';
+import { procedure, router, createRPCClient } from 'vura';
+import type { RPCContext, ProcedureDefinition, RouterDefinition } from 'vura';
 ```
 
 ## API
 
 | Export | Source |
 |---|---|
-| `createApp` | `@thenjs/server` |
-| `defineConfig` / `loadConfig` | `@thenjs/server` |
-| `thenVitePlugin` | `@thenjs/build` |
-| `procedure` / `router` | `@thenjs/rpc` |
-| `createRPCClient` | `@thenjs/rpc` |
+| `createApp` | `@vura/server` |
+| `defineConfig` / `loadConfig` | `@vura/server` |
+| `thenVitePlugin` | `@vura/build` |
+| `procedure` / `router` | `@vura/rpc` |
+| `createRPCClient` | `@vura/rpc` |
 
 ## License
 

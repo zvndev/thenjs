@@ -1,16 +1,16 @@
 {
-  "name": "thenjs-full-stack",
+  "name": "vura-full-stack",
   "private": true,
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "thenjs dev",
-    "build": "thenjs build",
-    "preview": "thenjs preview"
+    "dev": "vura dev",
+    "build": "vura build",
+    "preview": "vura preview"
   },
   "dependencies": {
-    "thenjs": "*",
-    "@thenjs/rpc": "*",
+    "vura": "*",
+    "@vura/rpc": "*",
     "what-framework": "^0.4.0",
     "zod": "^3.23.0"
   },

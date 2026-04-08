@@ -1,6 +1,6 @@
-// @thenjs/rpc — Type definitions
+// @vura/rpc — Type definitions
 
-import type { StandardSchema } from '@thenjs/schema';
+import type { StandardSchema } from '@vura/schema';
 
 // ─── Context ───
 

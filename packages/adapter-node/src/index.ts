@@ -1,10 +1,10 @@
-// @thenjs/adapter-node — Standalone Node.js server adapter
+// @vura/adapter-node — Standalone Node.js server adapter
 
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { join, extname } from 'node:path';
-import type { ThenApp } from '@thenjs/server';
-import type { RouteManifest, TaskManifest } from '@thenjs/build';
+import type { ThenApp } from '@vura/server';
+import type { RouteManifest, TaskManifest } from '@vura/build';
 
 // ─── Adapter Interface ───
 
@@ -131,12 +131,12 @@ const server = createServer(async (req, res) => {
 });
 
 server.listen(PORT, HOST, () => {
-  console.log(\`[thenjs] Server running at http://\${HOST}:\${PORT}\`);
+  console.log(\`[vura] Server running at http://\${HOST}:\${PORT}\`);
 });
 `;
 
     // In a real implementation, write this to disk
-    console.log('[thenjs:adapter-node] Generated server entry');
+    console.log('[vura:adapter-node] Generated server entry');
   },
 
   entryTemplate: 'node-server',
@@ -192,14 +192,14 @@ export function serve(app: ThenApp, options: NodeAdapterOptions = {}): void {
       const response = await app.handle(webRequest);
       await writeWebResponse(res, response);
     } catch (error) {
-      console.error('[thenjs] Unhandled error:', error);
+      console.error('[vura] Unhandled error:', error);
       res.statusCode = 500;
       res.end('Internal Server Error');
     }
   });
 
   server.listen(port, host, () => {
-    console.log(`[thenjs] Server running at http://${host}:${port}`);
+    console.log(`[vura] Server running at http://${host}:${port}`);
   });
 }
 

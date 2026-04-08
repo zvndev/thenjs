@@ -1,6 +1,6 @@
-# ThenJS + What Framework VS Code Extension
+# Vura + What Framework VS Code Extension
 
-Syntax highlighting and snippets for [ThenJS](https://github.com/zvndev/thenjs) and the What Framework.
+Syntax highlighting and snippets for [Vura](https://github.com/zvndev/vura) and the What Framework.
 
 ## Features
 
@@ -10,7 +10,7 @@ Syntax highlighting and snippets for [ThenJS](https://github.com/zvndev/thenjs) 
 - **Binding directives** -- `bind:value` recognized as a binding attribute
 - **Client directives** -- `client:load`, `client:idle`, `client:visible` for island hydration strategies
 - **Control flow components** -- `<For>`, `<Show>`, `<Switch>`, `<Match>` highlighted as framework components
-- **ThenJS APIs** -- `defineConfig()`, `procedure`, `createRouter`, `createRPCClient` highlighted as framework functions
+- **Vura APIs** -- `defineConfig()`, `procedure`, `createRouter`, `createRPCClient` highlighted as framework functions
 - **Page exports** -- `export const page = { ... }` recognized with constant highlighting
 
 ### Snippets
@@ -30,18 +30,18 @@ Syntax highlighting and snippets for [ThenJS](https://github.com/zvndev/thenjs) 
 | `what-swr` | `useSWR` data fetching |
 | `what-on` | Event handler with `on:` syntax |
 
-#### ThenJS (`then-` prefix)
+#### Vura (`then-` prefix)
 
 | Prefix | Description |
 |---|---|
-| `then-config` | `defineConfig` scaffold |
-| `then-page` | Page export with rendering mode |
-| `then-api` | API route handler (GET/POST/PUT/DELETE) |
-| `then-rpc` | RPC procedure with Zod validation |
-| `then-router` | RPC router scaffold |
-| `then-middleware` | Hook handler / middleware |
-| `then-client` | Typed RPC client setup |
-| `then-layout` | Page layout component |
+| `vura-config` | `defineConfig` scaffold |
+| `vura-page` | Page export with rendering mode |
+| `vura-api` | API route handler (GET/POST/PUT/DELETE) |
+| `vura-rpc` | RPC procedure with Zod validation |
+| `vura-router` | RPC router scaffold |
+| `vura-middleware` | Hook handler / middleware |
+| `vura-client` | Typed RPC client setup |
+| `vura-layout` | Page layout component |
 
 ### Screenshots
 

@@ -4,7 +4,7 @@ export default function Layout({ children }) {
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>ThenJS Starter</title>
+        <title>Vura Starter</title>
       </head>
       <body>
         <nav>

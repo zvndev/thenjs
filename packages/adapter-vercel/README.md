@@ -1,14 +1,14 @@
-# @thenjs/adapter-vercel
+# @vura/adapter-vercel
 
-Vercel deployment adapter for ThenJS. Produces a [Build Output API v3](https://vercel.com/docs/build-output-api/v3) directory structure with static assets, serverless functions, and cron configuration.
+Vercel deployment adapter for Vura. Produces a [Build Output API v3](https://vercel.com/docs/build-output-api/v3) directory structure with static assets, serverless functions, and cron configuration.
 
 ## Install
 
 ```
-npm install @thenjs/adapter-vercel
+npm install @vura/adapter-vercel
 ```
 
-Peer dependency: `@thenjs/build`.
+Peer dependency: `@vura/build`.
 
 ## Usage
 
@@ -17,8 +17,8 @@ Peer dependency: `@thenjs/build`.
 Set the adapter in your project config:
 
 ```typescript
-// then.config.ts
-import { defineConfig } from 'thenjs';
+// vura.config.ts
+import { defineConfig } from 'vura';
 
 export default defineConfig({
   build: {
@@ -32,7 +32,7 @@ export default defineConfig({
 Run the production build:
 
 ```
-npx thenjs build
+npx vura build
 ```
 
 The adapter generates the following structure:

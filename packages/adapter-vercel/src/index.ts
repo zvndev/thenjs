@@ -1,8 +1,8 @@
-// @thenjs/adapter-vercel — Vercel Build Output API v3 adapter
+// @vura/adapter-vercel — Vercel Build Output API v3 adapter
 
 import { writeFile, mkdir, cp } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
-import type { RouteManifest, TaskManifest } from '@thenjs/build';
+import type { RouteManifest, TaskManifest } from '@vura/build';
 
 export interface ThenAdapter {
   name: string;
@@ -31,14 +31,14 @@ const vercelAdapter: ThenAdapter = {
     try {
       await cp(clientDir, join(outputDir, 'static'), { recursive: true });
     } catch {
-      console.warn('[thenjs:vercel] No client assets to copy');
+      console.warn('[vura:vercel] No client assets to copy');
     }
 
     // 3. Copy pre-rendered HTML to static/
     try {
       await cp(staticDir, join(outputDir, 'static'), { recursive: true });
     } catch {
-      console.warn('[thenjs:vercel] No static pages to copy');
+      console.warn('[vura:vercel] No static pages to copy');
     }
 
     // 4. Generate serverless functions for SSR routes
@@ -77,7 +77,7 @@ const vercelAdapter: ThenAdapter = {
       );
     }
 
-    console.log('[thenjs:vercel] Build output generated');
+    console.log('[vura:vercel] Build output generated');
     console.log(`  → ${outputDir}/config.json`);
     console.log(`  → ${outputDir}/static/ (CDN assets)`);
     console.log(`  → ${outputDir}/functions/ (serverless)`);

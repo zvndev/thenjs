@@ -1,21 +1,21 @@
-# @thenjs/rpc
+# @vura/rpc
 
-Type-safe RPC layer for ThenJS. Define procedures with input/output validation, compose them into routers, handle requests on the server, and call them from the client with full type inference.
+Type-safe RPC layer for Vura. Define procedures with input/output validation, compose them into routers, handle requests on the server, and call them from the client with full type inference.
 
 ## Install
 
 ```
-npm install @thenjs/rpc
+npm install @vura/rpc
 ```
 
-Peer dependency: `@thenjs/schema` (installed automatically within the monorepo).
+Peer dependency: `@vura/schema` (installed automatically within the monorepo).
 
 ## Usage
 
 ### Define Procedures
 
 ```typescript
-import { procedure } from '@thenjs/rpc';
+import { procedure } from '@vura/rpc';
 import { z } from 'zod';
 
 const getUser = procedure
@@ -35,7 +35,7 @@ const createUser = procedure
 ### Build a Router
 
 ```typescript
-import { router } from '@thenjs/rpc';
+import { router } from '@vura/rpc';
 
 const appRouter = router({
   user: {
@@ -52,14 +52,14 @@ export type AppRouter = typeof appRouter;
 `RPCHandler` converts a router into a Web Standard Request handler. Mount it at `/_rpc/`:
 
 ```typescript
-import { RPCHandler } from '@thenjs/rpc';
+import { RPCHandler } from '@vura/rpc';
 
 const handler = new RPCHandler(appRouter, (request) => ({
   request,
   // Add context (e.g. authenticated user)
 }));
 
-// In a ThenJS app the build plugin mounts this automatically.
+// In a Vura app the build plugin mounts this automatically.
 // For manual usage:
 const response = await handler.handle(request);
 ```
@@ -69,7 +69,7 @@ const response = await handler.handle(request);
 `createRPCClient` returns a Proxy with full autocompletion derived from the router type:
 
 ```typescript
-import { createRPCClient } from '@thenjs/rpc';
+import { createRPCClient } from '@vura/rpc';
 import type { AppRouter } from './rpc/index.js';
 
 const rpc = createRPCClient<AppRouter>({ baseUrl: '/_rpc' });
@@ -87,7 +87,7 @@ const { key, fetcher } = rpc.user.getById.useSWR({ id: '1' });
 ### Middleware
 
 ```typescript
-import { createProcedure } from '@thenjs/rpc';
+import { createProcedure } from '@vura/rpc';
 
 const authedProcedure = createProcedure(async ({ ctx, next }) => {
   const token = ctx.request.headers.get('authorization');

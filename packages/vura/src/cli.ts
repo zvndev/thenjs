@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// thenjs — CLI entry point
+// vura — CLI entry point
 
 import { parseArgs } from 'node:util';
 import { resolve } from 'node:path';
@@ -23,7 +23,7 @@ if (values.help) {
 }
 
 if (values.version) {
-  console.log('thenjs v0.1.0');
+  console.log('vura v0.1.0');
   process.exit(0);
 }
 
@@ -69,7 +69,7 @@ async function runDev(
   ╚══════════════════════════════════╝
   `);
 
-  const { loadConfig } = await import('@thenjs/server');
+  const { loadConfig } = await import('@vura/server');
   const config = await loadConfig(root);
 
   const port = config.server?.port ?? options.port;
@@ -77,7 +77,7 @@ async function runDev(
 
   // Start Vite in middleware mode
   const { createServer: createViteServer } = await import('vite');
-  const { thenVitePlugin } = await import('@thenjs/build');
+  const { thenVitePlugin } = await import('@vura/build');
 
   const vite = await createViteServer({
     root,
@@ -100,23 +100,23 @@ async function runDev(
 }
 
 async function runBuild(root: string) {
-  console.log('[thenjs] Starting production build...');
+  console.log('[vura] Starting production build...');
 
-  const { loadConfig } = await import('@thenjs/server');
-  const { build } = await import('@thenjs/build');
+  const { loadConfig } = await import('@vura/server');
+  const { build } = await import('@vura/build');
 
   const config = await loadConfig(root);
 
   await build({ config, root });
 
-  console.log('[thenjs] Production build complete!');
+  console.log('[vura] Production build complete!');
 }
 
 async function runPreview(
   root: string,
   options: { port: number; host: string },
 ) {
-  const { loadConfig } = await import('@thenjs/server');
+  const { loadConfig } = await import('@vura/server');
   const config = await loadConfig(root);
 
   const port = config.server?.port ?? options.port;
@@ -138,7 +138,7 @@ async function runPreview(
 
 function printHelp() {
   console.log(`
-Usage: thenjs [command] [options]
+Usage: vura [command] [options]
 
 Commands:
   dev       Start development server (default)

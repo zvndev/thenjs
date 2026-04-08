@@ -1,4 +1,4 @@
-// @thenjs/rpc — Router + handler execution
+// @vura/rpc — Router + handler execution
 
 import type {
   ProcedureDefinition,
@@ -249,7 +249,7 @@ export class RPCHandler {
     return {
       openapi: '3.1.0',
       info: {
-        title: info?.title ?? 'ThenJS RPC API',
+        title: info?.title ?? 'Vura RPC API',
         version: info?.version ?? '1.0.0',
         description: info?.description,
       },

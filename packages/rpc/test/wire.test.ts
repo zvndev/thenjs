@@ -1,4 +1,4 @@
-// @thenjs/rpc — Tests for wire protocol
+// @vura/rpc — Tests for wire protocol
 
 import { describe, it, expect } from 'vitest';
 import { encode, decode } from '../src/wire.js';

@@ -1,4 +1,4 @@
-// @thenjs/server — Type definitions
+// @vura/server — Type definitions
 
 // ─── Hook Types ───
 

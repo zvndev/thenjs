@@ -1,4 +1,4 @@
-// @thenjs/server — Tests for Router
+// @vura/server — Tests for Router
 
 import { describe, it, expect } from 'vitest';
 import { Router } from '../src/router.js';

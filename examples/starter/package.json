@@ -1,15 +1,15 @@
 {
-  "name": "thenjs-starter",
+  "name": "vura-starter",
   "private": true,
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "thenjs dev",
-    "build": "thenjs build",
-    "preview": "thenjs preview"
+    "dev": "vura dev",
+    "build": "vura build",
+    "preview": "vura preview"
   },
   "dependencies": {
-    "thenjs": "*",
+    "vura": "*",
     "what-framework": "^0.4.0"
   },
   "devDependencies": {

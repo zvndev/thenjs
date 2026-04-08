@@ -1,4 +1,4 @@
-// @thenjs/server — Configuration
+// @vura/server — Configuration
 
 export interface ThenConfig {
   what?: {
@@ -50,8 +50,8 @@ const DEFAULT_CONFIG: ThenConfig = {
 };
 
 export async function loadConfig(root: string = process.cwd()): Promise<ThenConfig> {
-  // Try loading then.config.ts, then.config.js, then.config.mjs
-  const configFiles = ['then.config.ts', 'then.config.js', 'then.config.mjs'];
+  // Try loading vura.config.ts, vura.config.js, vura.config.mjs
+  const configFiles = ['vura.config.ts', 'vura.config.js', 'vura.config.mjs'];
 
   for (const file of configFiles) {
     const configPath = `${root}/${file}`;

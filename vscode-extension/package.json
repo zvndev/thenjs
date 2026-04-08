@@ -1,7 +1,7 @@
 {
-  "name": "thenjs",
-  "displayName": "ThenJS + What Framework",
-  "description": "Syntax highlighting and snippets for ThenJS and What Framework",
+  "name": "vura",
+  "displayName": "Vura + What Framework",
+  "description": "Syntax highlighting and snippets for Vura and What Framework",
   "version": "0.1.0",
   "publisher": "zvndev",
   "license": "MIT",
@@ -13,7 +13,7 @@
     "Snippets"
   ],
   "keywords": [
-    "thenjs",
+    "vura",
     "what-framework",
     "signals",
     "jsx",
@@ -23,7 +23,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/zvndev/thenjs"
+    "url": "https://github.com/zvndev/vura"
   },
   "icon": "icon.png",
   "activationEvents": [
@@ -42,8 +42,8 @@
         ]
       },
       {
-        "scopeName": "thenjs.injection",
-        "path": "./syntaxes/thenjs.tmLanguage.json",
+        "scopeName": "vura.injection",
+        "path": "./syntaxes/vura.tmLanguage.json",
         "injectTo": [
           "source.tsx",
           "source.jsx",
@@ -63,11 +63,11 @@
       },
       {
         "language": "typescriptreact",
-        "path": "./snippets/thenjs.json"
+        "path": "./snippets/vura.json"
       },
       {
         "language": "typescript",
-        "path": "./snippets/thenjs.json"
+        "path": "./snippets/vura.json"
       }
     ],
     "languages": [

@@ -1,4 +1,4 @@
-// @thenjs/build — Vite plugin + build pipeline
+// @vura/build — Vite plugin + build pipeline
 
 export { thenVitePlugin } from './vite-plugin.js';
 export { build } from './build.js';
