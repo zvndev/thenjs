@@ -5,9 +5,9 @@
     { "path": "packages/server" },
     { "path": "packages/rpc" },
     { "path": "packages/build" },
-    { "path": "packages/thenjs" },
+    { "path": "packages/vura" },
     { "path": "packages/adapter-node" },
     { "path": "packages/adapter-vercel" },
-    { "path": "packages/create-then" }
+    { "path": "packages/create-vura" }
   ]
 }
