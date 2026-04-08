@@ -13,21 +13,21 @@ export type HookName =
   | 'onError';
 
 export type HookHandler<T = void> = (
-  request: ThenRequest,
-  reply: ThenReply,
+  request: VuraRequest,
+  reply: VuraReply,
 ) => T | Promise<T>;
 
 export type OnErrorHandler = (
   error: Error,
-  request: ThenRequest,
-  reply: ThenReply,
+  request: VuraRequest,
+  reply: VuraReply,
 ) => void | Response | Promise<void | Response>;
 
 export type HookFunction = HookHandler<void | Response> | OnErrorHandler;
 
 // ─── Request / Reply ───
 
-export interface ThenRequest extends Request {
+export interface VuraRequest extends Request {
   params: Record<string, string>;
   query: Record<string, string>;
   parsedBody: unknown;
@@ -35,9 +35,9 @@ export interface ThenRequest extends Request {
   [key: string]: unknown;
 }
 
-export interface ThenReply {
-  status(code: number): ThenReply;
-  header(key: string, value: string): ThenReply;
+export interface VuraReply {
+  status(code: number): VuraReply;
+  header(key: string, value: string): VuraReply;
   headers: Record<string, string>;
   statusCode: number;
   send(data: unknown): Response;
@@ -54,8 +54,8 @@ export interface ThenReply {
 export type RouteMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' | 'HEAD' | 'OPTIONS';
 
 export type RouteHandler = (
-  request: ThenRequest,
-  reply: ThenReply,
+  request: VuraRequest,
+  reply: VuraReply,
 ) => Response | Promise<Response> | void | Promise<void>;
 
 export interface RouteOptions {
@@ -137,7 +137,7 @@ export interface PluginContext {
 
 // ─── App Config ───
 
-export interface ThenAppOptions {
+export interface VuraAppOptions {
   /** Base prefix for all routes */
   prefix?: string;
   /** Trust proxy headers */

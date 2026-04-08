@@ -1,13 +1,13 @@
-// @vura/server — ThenReply implementation
+// @vura/server — VuraReply implementation
 
-import type { ThenReply } from './types.js';
+import type { VuraReply } from './types.js';
 
-export function createReply(): ThenReply {
+export function createReply(): VuraReply {
   let statusCode = 200;
   const headers: Record<string, string> = {};
   let sent = false;
 
-  const reply: ThenReply = {
+  const reply: VuraReply = {
     get statusCode() {
       return statusCode;
     },

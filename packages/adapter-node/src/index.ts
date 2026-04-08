@@ -3,7 +3,7 @@
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { join, extname } from 'node:path';
-import type { ThenApp } from '@vura/server';
+import type { VuraApp } from '@vura/server';
 import type { RouteManifest, TaskManifest } from '@vura/build';
 
 // ─── Adapter Interface ───
@@ -17,7 +17,7 @@ export interface NodeAdapterOptions {
   staticDir?: string;
 }
 
-export interface ThenAdapter {
+export interface VuraAdapter {
   name: string;
   buildEnd(options: {
     serverEntry: string;
@@ -30,7 +30,7 @@ export interface ThenAdapter {
 }
 
 /** Node adapter for build output */
-const nodeAdapter: ThenAdapter = {
+const nodeAdapter: VuraAdapter = {
   name: 'node',
 
   async buildEnd({ serverEntry, clientDir, staticDir }) {
@@ -110,7 +110,7 @@ const server = createServer(async (req, res) => {
     duplex: hasBody ? 'half' : undefined,
   });
 
-  // Handle with ThenApp
+  // Handle with VuraApp
   const response = await (typeof app.handle === 'function' ? app.handle(webRequest) : app.fetch(webRequest));
 
   // Write response
@@ -144,9 +144,9 @@ server.listen(PORT, HOST, () => {
 
 export default nodeAdapter;
 
-// ─── Runtime: Start a Node server from a ThenApp ───
+// ─── Runtime: Start a Node server from a VuraApp ───
 
-export function serve(app: ThenApp, options: NodeAdapterOptions = {}): void {
+export function serve(app: VuraApp, options: NodeAdapterOptions = {}): void {
   const port = options.port ?? parseInt(process.env.PORT ?? '3000', 10);
   const host = options.host ?? '0.0.0.0';
   const staticDir = options.staticDir;

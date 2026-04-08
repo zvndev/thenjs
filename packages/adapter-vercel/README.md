@@ -69,7 +69,7 @@ vercel deploy
 | Export | Description |
 |---|---|
 | `default` (adapter) | Build adapter with `buildEnd()` hook -- generates `.vercel/output/` |
-| `ThenAdapter` | Adapter interface type |
+| `VuraAdapter` | Adapter interface type |
 
 ## License
 

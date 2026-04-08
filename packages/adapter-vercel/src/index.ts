@@ -4,7 +4,7 @@ import { writeFile, mkdir, cp } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import type { RouteManifest, TaskManifest } from '@vura/build';
 
-export interface ThenAdapter {
+export interface VuraAdapter {
   name: string;
   buildEnd(options: {
     serverEntry: string;
@@ -17,7 +17,7 @@ export interface ThenAdapter {
 }
 
 /** Vercel adapter — produces Build Output API v3 structure */
-const vercelAdapter: ThenAdapter = {
+const vercelAdapter: VuraAdapter = {
   name: 'vercel',
 
   async buildEnd({ serverEntry, clientDir, staticDir, routes, tasks }) {

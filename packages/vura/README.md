@@ -65,11 +65,11 @@ export default defineConfig({
 ```typescript
 // Server
 import { createApp, defineConfig, loadConfig } from 'vura';
-import type { ThenConfig, ThenApp, ThenRequest, ThenReply } from 'vura';
+import type { VuraConfig, VuraApp, VuraRequest, VuraReply } from 'vura';
 
 // Build
-import { thenVitePlugin } from 'vura';
-import type { ThenVitePluginOptions } from 'vura';
+import { vuraVitePlugin } from 'vura';
+import type { VuraVitePluginOptions } from 'vura';
 
 // RPC
 import { procedure, router, createRPCClient } from 'vura';
@@ -82,7 +82,7 @@ import type { RPCContext, ProcedureDefinition, RouterDefinition } from 'vura';
 |---|---|
 | `createApp` | `@vura/server` |
 | `defineConfig` / `loadConfig` | `@vura/server` |
-| `thenVitePlugin` | `@vura/build` |
+| `vuraVitePlugin` | `@vura/build` |
 | `procedure` / `router` | `@vura/rpc` |
 | `createRPCClient` | `@vura/rpc` |
 

@@ -1,9 +1,9 @@
 // @vura/build — Production build pipeline
 
-import type { ThenConfig } from '@vura/server';
+import type { VuraConfig } from '@vura/server';
 
 export interface BuildOptions {
-  config: ThenConfig;
+  config: VuraConfig;
   root: string;
 }
 
@@ -59,13 +59,13 @@ export async function build(options: BuildOptions): Promise<BuildResult> {
 
   // 2. Run Vite builds (client + server)
   const { build: viteBuild } = await import('vite');
-  const { thenVitePlugin } = await import('./vite-plugin.js');
+  const { vuraVitePlugin } = await import('./vite-plugin.js');
 
   // Client build
   console.log('[vura] Building client...');
   await viteBuild({
     root,
-    plugins: thenVitePlugin({ config }),
+    plugins: vuraVitePlugin({ config }),
     build: {
       outDir: `${outDir}/client`,
       manifest: true,
@@ -79,7 +79,7 @@ export async function build(options: BuildOptions): Promise<BuildResult> {
   console.log('[vura] Building server...');
   await viteBuild({
     root,
-    plugins: thenVitePlugin({ config }),
+    plugins: vuraVitePlugin({ config }),
     build: {
       outDir: `${outDir}/server`,
       ssr: true,

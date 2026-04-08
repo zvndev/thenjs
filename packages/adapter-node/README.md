@@ -1,6 +1,6 @@
 # @vura/adapter-node
 
-Node.js deployment adapter for Vura. Generates a standalone `node:http` server entry from the build output, and provides a `serve()` function for running a `ThenApp` at runtime.
+Node.js deployment adapter for Vura. Generates a standalone `node:http` server entry from the build output, and provides a `serve()` function for running a `VuraApp` at runtime.
 
 ## Install
 
@@ -32,7 +32,7 @@ After `vura build`, the adapter generates a standalone server entry at `dist/ser
 1. Serves static client assets with immutable cache headers
 2. Serves pre-rendered HTML from the static directory
 3. Converts incoming Node requests to Web Standard `Request` objects
-4. Passes them to the built ThenApp handler
+4. Passes them to the built VuraApp handler
 
 Run the production server:
 
@@ -42,7 +42,7 @@ node dist/server/entry-server.js
 
 ### Runtime `serve()`
 
-Use `serve()` to start a Node HTTP server from a `ThenApp` instance directly (useful for custom setups):
+Use `serve()` to start a Node HTTP server from a `VuraApp` instance directly (useful for custom setups):
 
 ```typescript
 import { createApp } from '@vura/server';
@@ -80,7 +80,7 @@ await writeWebResponse(res, webResponse);
 | Export | Description |
 |---|---|
 | `default` (adapter) | Build adapter with `buildEnd()` hook -- generates standalone server entry |
-| `serve(app, options?)` | Start a `node:http` server from a `ThenApp` |
+| `serve(app, options?)` | Start a `node:http` server from a `VuraApp` |
 | `nodeToWebRequest(req, url)` | Convert `IncomingMessage` to Web Standard `Request` |
 | `writeWebResponse(res, response)` | Write a Web Standard `Response` to `ServerResponse` |
 | `NodeAdapterOptions` | Options for `serve()`: `{ port?, host?, staticDir? }` |

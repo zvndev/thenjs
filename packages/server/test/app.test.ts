@@ -1,8 +1,8 @@
-// @vura/server — Tests for ThenApp
+// @vura/server — Tests for VuraApp
 
 import { describe, it, expect } from 'vitest';
 import { createApp } from '../src/app.js';
-import type { ThenRequest, ThenReply, PluginFunction } from '../src/types.js';
+import type { VuraRequest, VuraReply, PluginFunction } from '../src/types.js';
 
 // ─── Helpers ───
 
@@ -17,7 +17,7 @@ function makeRequest(url: string, method = 'GET', body?: unknown): Request {
 
 // ─── Tests ───
 
-describe('ThenApp', () => {
+describe('VuraApp', () => {
   describe('routing', () => {
     it('should handle GET routes', async () => {
       const app = createApp();

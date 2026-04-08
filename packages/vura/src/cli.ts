@@ -63,7 +63,7 @@ async function runDev(
 ) {
   console.log(`
   ╔══════════════════════════════════╗
-  ║          T H E N J S            ║
+  ║            V U R A              ║
   ║       Meta-Framework for        ║
   ║       What Framework            ║
   ╚══════════════════════════════════╝
@@ -77,11 +77,11 @@ async function runDev(
 
   // Start Vite in middleware mode
   const { createServer: createViteServer } = await import('vite');
-  const { thenVitePlugin } = await import('@vura/build');
+  const { vuraVitePlugin } = await import('@vura/build');
 
   const vite = await createViteServer({
     root,
-    plugins: thenVitePlugin({ config, root }),
+    plugins: vuraVitePlugin({ config, root }),
     server: {
       port,
       host,

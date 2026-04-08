@@ -2,11 +2,11 @@
 
 // Server
 export { createApp, defineConfig, loadConfig } from '@vura/server';
-export type { ThenConfig, ThenApp, ThenRequest, ThenReply } from '@vura/server';
+export type { VuraConfig, VuraApp, VuraRequest, VuraReply } from '@vura/server';
 
 // Build
-export { thenVitePlugin } from '@vura/build';
-export type { ThenVitePluginOptions } from '@vura/build';
+export { vuraVitePlugin } from '@vura/build';
+export type { VuraVitePluginOptions } from '@vura/build';
 
 // RPC
 export { procedure, router, createRPCClient } from '@vura/rpc';

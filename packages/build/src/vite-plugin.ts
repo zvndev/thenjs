@@ -2,20 +2,20 @@
 // Wraps what-compiler/vite and adds Vura-specific virtual modules
 
 import type { Plugin, ResolvedConfig, ViteDevServer } from 'vite';
-import type { ThenConfig } from '@vura/server';
+import type { VuraConfig } from '@vura/server';
 
 const VIRTUAL_ROUTES = 'virtual:vura-routes';
 const VIRTUAL_MANIFEST = 'virtual:vura-manifest';
 const VIRTUAL_RPC_CLIENT = 'virtual:vura-rpc-client';
 const RESOLVED_PREFIX = '\0';
 
-export interface ThenVitePluginOptions {
-  config?: ThenConfig;
+export interface VuraVitePluginOptions {
+  config?: VuraConfig;
   /** Root directory of the user's project */
   root?: string;
 }
 
-export function thenVitePlugin(options: ThenVitePluginOptions = {}): Plugin[] {
+export function vuraVitePlugin(options: VuraVitePluginOptions = {}): Plugin[] {
   const config = options.config ?? {};
   let resolvedConfig: ResolvedConfig;
   let devServer: ViteDevServer | undefined;

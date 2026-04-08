@@ -1,6 +1,6 @@
 // @vura/server — Configuration
 
-export interface ThenConfig {
+export interface VuraConfig {
   what?: {
     compiler?: {
       mode?: 'vdom' | 'fine-grained';
@@ -28,11 +28,11 @@ export interface ThenConfig {
   };
 }
 
-export function defineConfig(config: ThenConfig): ThenConfig {
+export function defineConfig(config: VuraConfig): VuraConfig {
   return config;
 }
 
-const DEFAULT_CONFIG: ThenConfig = {
+const DEFAULT_CONFIG: VuraConfig = {
   server: {
     defaultPageMode: 'hybrid',
     port: 3000,
@@ -49,7 +49,7 @@ const DEFAULT_CONFIG: ThenConfig = {
   },
 };
 
-export async function loadConfig(root: string = process.cwd()): Promise<ThenConfig> {
+export async function loadConfig(root: string = process.cwd()): Promise<VuraConfig> {
   // Try loading vura.config.ts, vura.config.js, vura.config.mjs
   const configFiles = ['vura.config.ts', 'vura.config.js', 'vura.config.mjs'];
 
@@ -68,8 +68,8 @@ export async function loadConfig(root: string = process.cwd()): Promise<ThenConf
   return { ...DEFAULT_CONFIG };
 }
 
-function mergeConfig(base: ThenConfig, override: ThenConfig): ThenConfig {
-  const result: ThenConfig = { ...base };
+function mergeConfig(base: VuraConfig, override: VuraConfig): VuraConfig {
+  const result: VuraConfig = { ...base };
 
   if (override.what) {
     result.what = {

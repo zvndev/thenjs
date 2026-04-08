@@ -1,18 +1,18 @@
 // @vura/server — Hook-based server runtime on Web Standard APIs
 
-export { ThenApp, createApp } from './app.js';
+export { VuraApp, createApp } from './app.js';
 export { createReply } from './reply.js';
 export { Router } from './router.js';
 export { defineConfig, loadConfig } from './config.js';
 
 export type {
-  ThenConfig,
+  VuraConfig,
 } from './config.js';
 
 export type {
-  ThenAppOptions,
-  ThenRequest,
-  ThenReply,
+  VuraAppOptions,
+  VuraRequest,
+  VuraReply,
   HookName,
   HookHandler,
   OnErrorHandler,

@@ -100,10 +100,10 @@ export default defineConfig({
 
 | Export | Description |
 |---|---|
-| `createApp(options?)` | Create a new `ThenApp` instance |
-| `ThenApp` | Server class with `handle(Request)`, route methods, hooks, plugins |
+| `createApp(options?)` | Create a new `VuraApp` instance |
+| `VuraApp` | Server class with `handle(Request)`, route methods, hooks, plugins |
 | `Router` | Radix-tree router with param (`:id`) and wildcard (`*path`) support |
-| `createReply()` | Build a `ThenReply` with chainable `.status()`, `.header()`, `.json()`, `.html()`, `.stream()`, `.redirect()` |
+| `createReply()` | Build a `VuraReply` with chainable `.status()`, `.header()`, `.json()`, `.html()`, `.stream()`, `.redirect()` |
 | `defineConfig(config)` | Type-safe config helper |
 | `loadConfig(root?)` | Load `vura.config.{ts,js,mjs}` with defaults |
 

@@ -77,7 +77,7 @@ import { rpc } from 'virtual:vura-rpc-client';
 |---|---|
 | `vuraVitePlugin(options?)` | Returns Vite `Plugin[]`. Options: `{ config?, root? }` |
 | `build(options)` | Run a full production build. Options: `{ config, root }` |
-| `ThenVitePluginOptions` | Plugin option types |
+| `VuraVitePluginOptions` | Plugin option types |
 | `BuildOptions` / `BuildResult` | Build input/output types |
 | `RouteManifest` | Pages, API routes, and RPC procedures discovered at build time |
 | `TaskManifest` | Cron jobs and queue workers discovered at build time |

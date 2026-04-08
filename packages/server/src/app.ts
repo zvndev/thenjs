@@ -1,11 +1,11 @@
-// @vura/server — ThenApp: hook-based server with plugin encapsulation
+// @vura/server — VuraApp: hook-based server with plugin encapsulation
 
 import { Router } from './router.js';
 import { createReply } from './reply.js';
 import type {
-  ThenAppOptions,
-  ThenRequest,
-  ThenReply,
+  VuraAppOptions,
+  VuraRequest,
+  VuraReply,
   HookHandler,
   OnErrorHandler,
   HookName,
@@ -167,14 +167,14 @@ class EncapsulationContext {
   }
 }
 
-// ─── ThenApp ───
+// ─── VuraApp ───
 
-export class ThenApp {
+export class VuraApp {
   private router = new Router();
   private rootContext: EncapsulationContext;
   private pluginContext: PluginContext;
 
-  constructor(private options: ThenAppOptions = {}) {
+  constructor(private options: VuraAppOptions = {}) {
     this.rootContext = new EncapsulationContext(null, options.prefix ?? '', this.router);
     this.pluginContext = this.rootContext.toPluginContext();
   }
@@ -240,7 +240,7 @@ export class ThenApp {
       return new Response('Not Found', { status: 404 });
     }
 
-    // Build ThenRequest
+    // Build VuraRequest
     const thenRequest = this.buildRequest(request, url, match.params);
 
     // Apply request decorations from root context
@@ -250,7 +250,7 @@ export class ThenApp {
       }
     }
 
-    // Build ThenReply
+    // Build VuraReply
     const reply = createReply();
 
     try {
@@ -280,25 +280,25 @@ export class ThenApp {
     request: Request,
     url: URL,
     params: Record<string, string>,
-  ): ThenRequest {
+  ): VuraRequest {
     const query: Record<string, string> = {};
     for (const [key, value] of url.searchParams) {
       query[key] = value;
     }
 
-    // Create a ThenRequest by extending the original request
+    // Create a VuraRequest by extending the original request
     const thenRequest = Object.create(request, {
       params: { value: params, writable: true },
       query: { value: query, writable: true },
       parsedBody: { value: undefined, writable: true },
-    }) as ThenRequest;
+    }) as VuraRequest;
 
     return thenRequest;
   }
 
   private async runLifecycle(
-    request: ThenRequest,
-    reply: ThenReply,
+    request: VuraRequest,
+    reply: VuraReply,
     route: InternalRoute,
   ): Promise<Response> {
     // 1. onRequest hooks (route-specific inherit encapsulation hooks)
@@ -351,8 +351,8 @@ export class ThenApp {
 
   private async runHooks(
     hooks: HookHandler[],
-    request: ThenRequest,
-    reply: ThenReply,
+    request: VuraRequest,
+    reply: VuraReply,
   ): Promise<Response | null> {
     for (const hook of hooks) {
       const result: unknown = await hook(request, reply);
@@ -368,8 +368,8 @@ export class ThenApp {
 
   private runHooksFireAndForget(
     hooks: HookHandler[],
-    request: ThenRequest,
-    reply: ThenReply,
+    request: VuraRequest,
+    reply: VuraReply,
   ): void {
     for (const hook of hooks) {
       try {
@@ -380,7 +380,7 @@ export class ThenApp {
     }
   }
 
-  private async parseBody(request: ThenRequest): Promise<void> {
+  private async parseBody(request: VuraRequest): Promise<void> {
     const contentType = request.headers.get('content-type') ?? '';
 
     if (request.method === 'GET' || request.method === 'HEAD') {
@@ -402,8 +402,8 @@ export class ThenApp {
 
   private async handleError(
     error: Error,
-    request: ThenRequest,
-    reply: ThenReply,
+    request: VuraRequest,
+    reply: VuraReply,
     route: InternalRoute,
   ): Promise<Response> {
     // Run onError hooks
@@ -435,6 +435,6 @@ export class ThenApp {
 
 // ─── Factory ───
 
-export function createApp(options?: ThenAppOptions): ThenApp {
-  return new ThenApp(options);
+export function createApp(options?: VuraAppOptions): VuraApp {
+  return new VuraApp(options);
 }
