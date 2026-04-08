@@ -1,4 +1,4 @@
-// @thenjs/rpc — Client-side RPC proxy + useSWR integration
+// @vura/rpc — Client-side RPC proxy + useSWR integration
 
 import { encode, decode } from './wire.js';
 
@@ -143,7 +143,7 @@ export function generateClientCode(manifest: {
   procedures: Record<string, { type: string; path: string }>;
 }, baseUrl = '/_rpc'): string {
   const lines: string[] = [
-    `import { createRPCClient } from '@thenjs/rpc/client';`,
+    `import { createRPCClient } from '@vura/rpc/client';`,
     `export const rpc = createRPCClient({ baseUrl: '${baseUrl}' });`,
   ];
   return lines.join('\n');

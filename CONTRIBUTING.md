@@ -1,12 +1,12 @@
-# Contributing to ThenJS
+# Contributing to Vura
 
-Thank you for your interest in contributing to ThenJS!
+Thank you for your interest in contributing to Vura!
 
 ## Development Setup
 
 ```bash
-git clone https://github.com/zvndev/thenjs.git
-cd thenjs
+git clone https://github.com/zvndev/vura.git
+cd vura
 npm install
 npm run build
 npm test

@@ -1,4 +1,4 @@
-import { rpc } from 'virtual:then-rpc-client';
+import { rpc } from 'virtual:vura-rpc-client';
 
 export const page = { mode: 'server' };
 

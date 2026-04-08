@@ -1,4 +1,4 @@
-import type { HookHandler } from '@thenjs/server';
+import type { HookHandler } from '@vura/server';
 
 export const requireAuth: HookHandler = async (request, reply) => {
   const token = request.headers.get('authorization');

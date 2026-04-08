@@ -1,7 +1,7 @@
-// @thenjs/rpc — Procedure builder (oRPC-inspired)
+// @vura/rpc — Procedure builder (oRPC-inspired)
 
-import type { StandardSchema } from '@thenjs/schema';
-import { fromSchema } from '@thenjs/schema';
+import type { StandardSchema } from '@vura/schema';
+import { fromSchema } from '@vura/schema';
 import type {
   ProcedureDefinition,
   ProcedureType,

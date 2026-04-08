@@ -1,0 +1,44 @@
+{
+  "scopeName": "vura.injection",
+  "injectionSelector": "L:source.ts, L:source.tsx, L:source.js, L:source.jsx",
+  "patterns": [
+    { "include": "#define-config" },
+    { "include": "#page-export" },
+    { "include": "#rpc-chain" },
+    { "include": "#vura-imports" }
+  ],
+  "repository": {
+    "define-config": {
+      "name": "meta.function-call.vura",
+      "match": "\\b(defineConfig)\\s*(\\()",
+      "captures": {
+        "1": { "name": "support.function.vura" },
+        "2": { "name": "punctuation.definition.arguments.begin.vura" }
+      }
+    },
+    "page-export": {
+      "name": "meta.export.page.vura",
+      "match": "\\b(export)\\s+(const)\\s+(page)\\s*(=)",
+      "captures": {
+        "1": { "name": "keyword.control.export.vura" },
+        "2": { "name": "storage.type.vura" },
+        "3": { "name": "variable.other.constant.vura" },
+        "4": { "name": "keyword.operator.assignment.vura" }
+      }
+    },
+    "rpc-chain": {
+      "name": "meta.function-call.rpc.vura",
+      "match": "\\b(procedure|router|createRPCClient|createRouter|createMiddleware)\\b",
+      "captures": {
+        "1": { "name": "support.function.vura" }
+      }
+    },
+    "vura-imports": {
+      "name": "meta.import.vura",
+      "match": "(?<=['\"])(@vura/[a-zA-Z-]+|vura)(?=['\"])",
+      "captures": {
+        "0": { "name": "support.module.vura" }
+      }
+    }
+  }
+}

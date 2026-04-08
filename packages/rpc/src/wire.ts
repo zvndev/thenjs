@@ -1,4 +1,4 @@
-// @thenjs/rpc — Wire protocol: tagged encoding for native types
+// @vura/rpc — Wire protocol: tagged encoding for native types
 
 import type { TaggedValue } from './types.js';
 

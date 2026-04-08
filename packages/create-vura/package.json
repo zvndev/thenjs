@@ -1,12 +1,12 @@
 {
-  "name": "thenjs",
+  "name": "create-vura",
   "version": "0.1.0",
   "type": "module",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "thenjs": "dist/cli.js"
+    "create-vura": "dist/index.js"
   },
   "exports": {
     ".": {
@@ -20,12 +20,5 @@
   "scripts": {
     "build": "tsc -b",
     "prepublishOnly": "tsc -b"
-  },
-  "dependencies": {
-    "@thenjs/server": "*",
-    "@thenjs/build": "*"
-  },
-  "peerDependencies": {
-    "vite": "^6.0.0"
   }
 }

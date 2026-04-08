@@ -1,13 +1,13 @@
-# create-then
+# create-vura
 
-Project scaffolder for ThenJS. Creates a new project with file-based routing, API routes, TypeScript, and Vite pre-configured.
+Project scaffolder for Vura. Creates a new project with file-based routing, API routes, TypeScript, and Vite pre-configured.
 
 ## Install
 
 No install needed -- run directly with `npx`:
 
 ```
-npx create-then my-app
+npx create-vura my-app
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npx create-then my-app
 ### Starter Template (default)
 
 ```
-npx create-then my-app
+npx create-vura my-app
 ```
 
 Scaffolds:
@@ -30,7 +30,7 @@ my-app/
       health.ts          # GET /api/health
     entry-client.tsx     # Client hydration entry
     entry-server.tsx     # SSR render entry
-  then.config.ts         # ThenJS configuration
+  vura.config.ts         # Vura configuration
   tsconfig.json
   package.json
 ```
@@ -38,7 +38,7 @@ my-app/
 ### Full-Stack Template
 
 ```
-npx create-then my-app --template full-stack
+npx create-vura my-app --template full-stack
 ```
 
 Includes everything from `starter` plus:
@@ -52,14 +52,14 @@ Includes everything from `starter` plus:
       auth.ts            # Example auth hook
 ```
 
-Also adds `@thenjs/rpc` and `zod` as dependencies and configures OpenAPI generation in `then.config.ts`.
+Also adds `@vura/rpc` and `zod` as dependencies and configures OpenAPI generation in `vura.config.ts`.
 
 ### Getting Started
 
 ```
 cd my-app
 npm install
-npx thenjs dev
+npx vura dev
 ```
 
 ### Options

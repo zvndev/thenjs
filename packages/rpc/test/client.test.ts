@@ -52,7 +52,7 @@ describe('generateClientCode', () => {
 
     const code = generateClientCode(manifest);
 
-    expect(code).toContain("import { createRPCClient } from '@thenjs/rpc/client'");
+    expect(code).toContain("import { createRPCClient } from '@vura/rpc/client'");
     expect(code).toContain('createRPCClient(');
     expect(code).toContain("baseUrl: '/_rpc'");
     expect(code).toContain('export const rpc');

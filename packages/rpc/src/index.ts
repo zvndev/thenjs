@@ -1,4 +1,4 @@
-// @thenjs/rpc — Type-safe RPC procedures
+// @vura/rpc — Type-safe RPC procedures
 
 export { procedure, createProcedure } from './procedure.js';
 export { router, RPCHandler } from './router.js';

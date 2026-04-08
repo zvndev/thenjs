@@ -4,7 +4,7 @@
   "commit": false,
   "fixed": [],
   "linked": [
-    ["@thenjs/server", "@thenjs/rpc", "@thenjs/schema", "@thenjs/build", "thenjs"]
+    ["@vura/server", "@vura/rpc", "@vura/schema", "@vura/build", "vura"]
   ],
   "access": "public",
   "baseBranch": "main",

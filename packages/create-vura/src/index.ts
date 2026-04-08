@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// create-then — Project scaffolder for ThenJS
+// create-vura — Project scaffolder for Vura
 
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
@@ -15,25 +15,25 @@ const { values, positionals } = parseArgs({
 
 if (values.help) {
   console.log(`
-Usage: create-then [project-name] [options]
+Usage: create-vura [project-name] [options]
 
 Options:
   -t, --template <name>   Template to use (starter, full-stack)
   -h, --help              Show help
 
 Examples:
-  npx create-then my-app
-  npx create-then my-app --template full-stack
+  npx create-vura my-app
+  npx create-vura my-app --template full-stack
   `);
   process.exit(0);
 }
 
-const projectName = positionals[0] ?? 'my-then-app';
+const projectName = positionals[0] ?? 'my-vura-app';
 const template = values.template ?? 'starter';
 const projectDir = resolve(process.cwd(), projectName);
 
 console.log(`
-  Creating ThenJS project: ${projectName}
+  Creating Vura project: ${projectName}
   Template: ${template}
   Directory: ${projectDir}
 `);
@@ -45,7 +45,7 @@ console.log(`
 
     cd ${projectName}
     npm install
-    npx thenjs dev
+    npx vura dev
 
   Happy building!
 `);
@@ -63,12 +63,12 @@ async function scaffold(dir: string, name: string, template: string): Promise<vo
     version: '0.1.0',
     type: 'module',
     scripts: {
-      dev: 'thenjs dev',
-      build: 'thenjs build',
-      preview: 'thenjs preview',
+      dev: 'vura dev',
+      build: 'vura build',
+      preview: 'vura preview',
     },
     dependencies: {
-      'thenjs': '^0.1.0',
+      'vura': '^0.1.0',
       'what-framework': '^0.4.0',
     },
     devDependencies: {
@@ -92,8 +92,8 @@ async function scaffold(dir: string, name: string, template: string): Promise<vo
     include: ['src'],
   }, null, 2));
 
-  // then.config.ts
-  await writeFile(join(dir, 'then.config.ts'), `import { defineConfig } from 'thenjs';
+  // vura.config.ts
+  await writeFile(join(dir, 'vura.config.ts'), `import { defineConfig } from 'vura';
 
 export default defineConfig({
   server: {
@@ -111,7 +111,7 @@ export default defineConfig({
 export default function Home() {
   return (
     <main>
-      <h1>Welcome to ThenJS</h1>
+      <h1>Welcome to Vura</h1>
       <p>The meta-framework for What Framework.</p>
     </main>
   );
@@ -125,7 +125,7 @@ export default function Home() {
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>ThenJS App</title>
+        <title>Vura App</title>
       </head>
       <body>
         {children}
@@ -162,7 +162,7 @@ export async function render(url: string) {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ThenJS App</title>
+  <title>Vura App</title>
 </head>
 <body>
   <div id="app">\${content}</div>
@@ -182,7 +182,7 @@ async function scaffoldFullStack(dir: string): Promise<void> {
   await mkdir(join(dir, 'src', 'middleware'), { recursive: true });
 
   // RPC router
-  await writeFile(join(dir, 'src', 'rpc', 'user.ts'), `import { procedure, router } from '@thenjs/rpc';
+  await writeFile(join(dir, 'src', 'rpc', 'user.ts'), `import { procedure, router } from '@vura/rpc';
 import { z } from 'zod';
 
 export const userRouter = router({
@@ -209,7 +209,7 @@ export default {
 `);
 
   // Auth middleware
-  await writeFile(join(dir, 'src', 'middleware', 'auth.ts'), `import type { HookHandler } from '@thenjs/server';
+  await writeFile(join(dir, 'src', 'middleware', 'auth.ts'), `import type { HookHandler } from '@vura/server';
 
 export const authHook: HookHandler = async (request, reply) => {
   const token = request.headers.get('authorization')?.replace('Bearer ', '');
@@ -221,8 +221,8 @@ export const authHook: HookHandler = async (request, reply) => {
 };
 `);
 
-  // Update then.config.ts for full-stack
-  await writeFile(join(dir, 'then.config.ts'), `import { defineConfig } from 'thenjs';
+  // Update vura.config.ts for full-stack
+  await writeFile(join(dir, 'vura.config.ts'), `import { defineConfig } from 'vura';
 
 export default defineConfig({
   server: {
@@ -244,7 +244,7 @@ export default defineConfig({
   // Add zod dependency
   const pkgPath = join(dir, 'package.json');
   const pkg = JSON.parse(await readFile(pkgPath, 'utf8'));
-  pkg.dependencies['@thenjs/rpc'] = '^0.1.0';
+  pkg.dependencies['@vura/rpc'] = '^0.1.0';
   pkg.dependencies['zod'] = '^3.23.0';
   await writeFile(pkgPath, JSON.stringify(pkg, null, 2));
 }

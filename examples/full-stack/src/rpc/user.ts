@@ -1,4 +1,4 @@
-import { procedure, router } from '@thenjs/rpc';
+import { procedure, router } from '@vura/rpc';
 import { z } from 'zod';
 
 const users = [

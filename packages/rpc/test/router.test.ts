@@ -506,7 +506,7 @@ describe('RPCHandler', () => {
       const spec = handler.generateOpenAPI();
 
       expect(spec.openapi).toBe('3.1.0');
-      expect((spec.info as any).title).toBe('ThenJS RPC API');
+      expect((spec.info as any).title).toBe('Vura RPC API');
       expect((spec.info as any).version).toBe('1.0.0');
       expect(spec.paths).toBeDefined();
     });

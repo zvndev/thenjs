@@ -1,4 +1,4 @@
-// @thenjs/schema — Standard Schema adapter
+// @vura/schema — Standard Schema adapter
 // Normalizes Zod, TypeBox, Valibot, ArkType to a common interface
 
 import { createRequire } from 'node:module';

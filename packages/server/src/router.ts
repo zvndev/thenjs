@@ -1,4 +1,4 @@
-// @thenjs/server — Radix tree router with URL pattern matching
+// @vura/server — Radix tree router with URL pattern matching
 
 import type { RouteMethod, InternalRoute, RouteMatch, RouteHandler, RouteHooks } from './types.js';
 

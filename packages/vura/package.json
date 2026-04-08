@@ -1,12 +1,12 @@
 {
-  "name": "create-then",
+  "name": "vura",
   "version": "0.1.0",
   "type": "module",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "create-then": "dist/index.js"
+    "vura": "dist/cli.js"
   },
   "exports": {
     ".": {
@@ -20,5 +20,13 @@
   "scripts": {
     "build": "tsc -b",
     "prepublishOnly": "tsc -b"
+  },
+  "dependencies": {
+    "@vura/server": "workspace:*",
+    "@vura/build": "workspace:*",
+    "@vura/rpc": "workspace:*"
+  },
+  "peerDependencies": {
+    "vite": "^6.0.0"
   }
 }

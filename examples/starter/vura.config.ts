@@ -1,4 +1,4 @@
-import { defineConfig } from 'thenjs';
+import { defineConfig } from 'vura';
 
 export default defineConfig({
   server: {

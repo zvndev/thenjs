@@ -1,8 +1,8 @@
 {
-  "ThenJS Config": {
-    "prefix": "then-config",
+  "Vura Config": {
+    "prefix": "vura-config",
     "body": [
-      "import { defineConfig } from 'thenjs';",
+      "import { defineConfig } from 'vura';",
       "",
       "export default defineConfig({",
       "  server: {",
@@ -14,10 +14,10 @@
       "  $0",
       "});"
     ],
-    "description": "ThenJS defineConfig scaffold"
+    "description": "Vura defineConfig scaffold"
   },
-  "ThenJS Page Export": {
-    "prefix": "then-page",
+  "Vura Page Export": {
+    "prefix": "vura-page",
     "body": [
       "export const page = {",
       "  mode: '${1|ssr,ssg,spa,islands|}',",
@@ -34,10 +34,10 @@
     ],
     "description": "Page export with rendering mode declaration"
   },
-  "ThenJS API Route": {
-    "prefix": "then-api",
+  "Vura API Route": {
+    "prefix": "vura-api",
     "body": [
-      "import type { APIContext } from 'thenjs';",
+      "import type { APIContext } from 'vura';",
       "",
       "export async function ${1|GET,POST,PUT,DELETE,PATCH|}({ request, params }: APIContext) {",
       "  ${2:const body = await request.json();}",
@@ -52,10 +52,10 @@
     ],
     "description": "API route handler with typed context"
   },
-  "ThenJS RPC Procedure": {
-    "prefix": "then-rpc",
+  "Vura RPC Procedure": {
+    "prefix": "vura-rpc",
     "body": [
-      "import { procedure } from '@thenjs/rpc';",
+      "import { procedure } from '@vura/rpc';",
       "import { z } from 'zod';",
       "",
       "export const ${1:myProcedure} = procedure",
@@ -69,10 +69,10 @@
     ],
     "description": "RPC procedure with Zod input validation"
   },
-  "ThenJS RPC Router": {
-    "prefix": "then-router",
+  "Vura RPC Router": {
+    "prefix": "vura-router",
     "body": [
-      "import { createRouter, procedure } from '@thenjs/rpc';",
+      "import { createRouter, procedure } from '@vura/rpc';",
       "import { z } from 'zod';",
       "",
       "export const ${1:appRouter} = createRouter({",
@@ -89,10 +89,10 @@
     ],
     "description": "RPC router scaffold with type export"
   },
-  "ThenJS Middleware / Hook": {
-    "prefix": "then-middleware",
+  "Vura Middleware / Hook": {
+    "prefix": "vura-middleware",
     "body": [
-      "import type { HookHandler } from 'thenjs';",
+      "import type { HookHandler } from 'vura';",
       "",
       "export const ${1:myMiddleware}: HookHandler = async ({ request, next }) => {",
       "  ${2:// Before handler}",
@@ -106,10 +106,10 @@
     ],
     "description": "Hook handler / middleware scaffold"
   },
-  "ThenJS RPC Client": {
-    "prefix": "then-client",
+  "Vura RPC Client": {
+    "prefix": "vura-client",
     "body": [
-      "import { createRPCClient } from '@thenjs/rpc/client';",
+      "import { createRPCClient } from '@vura/rpc/client';",
       "import type { ${1:AppRouter} } from '${2:./server/router}';",
       "",
       "export const rpc = createRPCClient<${1:AppRouter}>({",
@@ -118,8 +118,8 @@
     ],
     "description": "Create a typed RPC client"
   },
-  "ThenJS Layout": {
-    "prefix": "then-layout",
+  "Vura Layout": {
+    "prefix": "vura-layout",
     "body": [
       "export default function ${1:Layout}({ children }) {",
       "  return (",
@@ -127,7 +127,7 @@
       "      <head>",
       "        <meta charset=\"UTF-8\" />",
       "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />",
-      "        <title>${3:ThenJS App}</title>",
+      "        <title>${3:Vura App}</title>",
       "      </head>",
       "      <body>",
       "        {children}",

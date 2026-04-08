@@ -2,16 +2,16 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 export default defineConfig({
-  site: 'https://thenjs.dev',
+  site: 'https://vura.dev',
   integrations: [
     starlight({
-      title: 'ThenJS',
+      title: 'Vura',
       description: 'The meta-framework for What Framework',
       social: {
-        github: 'https://github.com/zvndev/thenjs',
+        github: 'https://github.com/zvndev/vura',
       },
       editLink: {
-        baseUrl: 'https://github.com/zvndev/thenjs/edit/main/docs-site/',
+        baseUrl: 'https://github.com/zvndev/vura/edit/main/docs-site/',
       },
       sidebar: [
         {

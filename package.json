@@ -1,9 +1,9 @@
 {
-  "name": "thenjs-monorepo",
+  "name": "vura",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "ThenJS — Meta-framework for What Framework",
+  "description": "Vura — Meta-framework for What Framework",
   "workspaces": [
     "packages/*",
     "examples/*"

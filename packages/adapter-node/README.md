@@ -1,14 +1,14 @@
-# @thenjs/adapter-node
+# @vura/adapter-node
 
-Node.js deployment adapter for ThenJS. Generates a standalone `node:http` server entry from the build output, and provides a `serve()` function for running a `ThenApp` at runtime.
+Node.js deployment adapter for Vura. Generates a standalone `node:http` server entry from the build output, and provides a `serve()` function for running a `VuraApp` at runtime.
 
 ## Install
 
 ```
-npm install @thenjs/adapter-node
+npm install @vura/adapter-node
 ```
 
-Peer dependencies: `@thenjs/server`, `@thenjs/build`.
+Peer dependencies: `@vura/server`, `@vura/build`.
 
 ## Usage
 
@@ -17,8 +17,8 @@ Peer dependencies: `@thenjs/server`, `@thenjs/build`.
 Set the adapter in your config and the build pipeline will invoke it automatically:
 
 ```typescript
-// then.config.ts
-import { defineConfig } from 'thenjs';
+// vura.config.ts
+import { defineConfig } from 'vura';
 
 export default defineConfig({
   build: {
@@ -27,12 +27,12 @@ export default defineConfig({
 });
 ```
 
-After `thenjs build`, the adapter generates a standalone server entry at `dist/server/` that:
+After `vura build`, the adapter generates a standalone server entry at `dist/server/` that:
 
 1. Serves static client assets with immutable cache headers
 2. Serves pre-rendered HTML from the static directory
 3. Converts incoming Node requests to Web Standard `Request` objects
-4. Passes them to the built ThenApp handler
+4. Passes them to the built VuraApp handler
 
 Run the production server:
 
@@ -42,11 +42,11 @@ node dist/server/entry-server.js
 
 ### Runtime `serve()`
 
-Use `serve()` to start a Node HTTP server from a `ThenApp` instance directly (useful for custom setups):
+Use `serve()` to start a Node HTTP server from a `VuraApp` instance directly (useful for custom setups):
 
 ```typescript
-import { createApp } from '@thenjs/server';
-import { serve } from '@thenjs/adapter-node';
+import { createApp } from '@vura/server';
+import { serve } from '@vura/adapter-node';
 
 const app = createApp();
 
@@ -66,7 +66,7 @@ serve(app, {
 For advanced use, the package also exports low-level helpers:
 
 ```typescript
-import { nodeToWebRequest, writeWebResponse } from '@thenjs/adapter-node';
+import { nodeToWebRequest, writeWebResponse } from '@vura/adapter-node';
 
 // Convert a Node IncomingMessage + URL to a Web Standard Request
 const webReq = nodeToWebRequest(req, url);
@@ -80,7 +80,7 @@ await writeWebResponse(res, webResponse);
 | Export | Description |
 |---|---|
 | `default` (adapter) | Build adapter with `buildEnd()` hook -- generates standalone server entry |
-| `serve(app, options?)` | Start a `node:http` server from a `ThenApp` |
+| `serve(app, options?)` | Start a `node:http` server from a `VuraApp` |
 | `nodeToWebRequest(req, url)` | Convert `IncomingMessage` to Web Standard `Request` |
 | `writeWebResponse(res, response)` | Write a Web Standard `Response` to `ServerResponse` |
 | `NodeAdapterOptions` | Options for `serve()`: `{ port?, host?, staticDir? }` |

@@ -1,5 +1,5 @@
 {
-  "name": "@thenjs/adapter-node",
+  "name": "@vura/adapter-node",
   "version": "0.1.0",
   "type": "module",
   "license": "MIT",
@@ -19,7 +19,7 @@
     "prepublishOnly": "tsc -b"
   },
   "peerDependencies": {
-    "@thenjs/server": "*",
-    "@thenjs/build": "*"
+    "@vura/server": "workspace:*",
+    "@vura/build": "workspace:*"
   }
 }
