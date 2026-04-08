@@ -130,6 +130,8 @@ function resolveAdapter(adapter: string): string {
   }
   if (adapter === 'node') return '@vura/adapter-node';
   if (adapter === 'vercel') return '@vura/adapter-vercel';
+  if (adapter === 'lambda') return '@vura/adapter-lambda';
+  if (adapter === 'cloudflare') return '@vura/adapter-cloudflare';
   return adapter;
 }
 
@@ -137,6 +139,7 @@ function detectAdapter(): string {
   if (process.env.VERCEL) return '@vura/adapter-vercel';
   if (process.env.NETLIFY) return '@vura/adapter-netlify';
   if (process.env.CF_PAGES) return '@vura/adapter-cloudflare';
+  if (process.env.AWS_LAMBDA_FUNCTION_NAME) return '@vura/adapter-lambda';
   return '@vura/adapter-node';
 }
 

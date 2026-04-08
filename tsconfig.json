@@ -8,6 +8,8 @@
     { "path": "packages/vura" },
     { "path": "packages/adapter-node" },
     { "path": "packages/adapter-vercel" },
+    { "path": "packages/adapter-lambda" },
+    { "path": "packages/adapter-cloudflare" },
     { "path": "packages/create-vura" }
   ]
 }

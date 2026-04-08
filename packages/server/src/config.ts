@@ -12,7 +12,7 @@ export interface VuraConfig {
     host?: string;
   };
   build?: {
-    adapter?: 'auto' | 'node' | 'vercel' | string;
+    adapter?: 'auto' | 'node' | 'vercel' | 'lambda' | 'cloudflare' | string;
     outDir?: string;
   };
   rpc?: {
