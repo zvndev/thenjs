@@ -9,7 +9,7 @@
     "preview": "vura preview"
   },
   "dependencies": {
-    "vura": "*",
+    "vura": "workspace:*",
     "what-framework": "^0.4.0"
   },
   "devDependencies": {

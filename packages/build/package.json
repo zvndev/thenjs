@@ -18,7 +18,11 @@
     "build": "tsc -b",
     "prepublishOnly": "tsc -b"
   },
+  "dependencies": {
+    "@vura/server": "workspace:*"
+  },
   "peerDependencies": {
+    "@vura/rpc": "workspace:*",
     "vite": "^6.0.0",
     "what-framework": "*"
   }

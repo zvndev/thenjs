@@ -19,6 +19,6 @@
     "prepublishOnly": "tsc -b"
   },
   "peerDependencies": {
-    "@vura/build": "*"
+    "@vura/build": "workspace:*"
   }
 }

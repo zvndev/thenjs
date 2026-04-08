@@ -22,8 +22,9 @@
     "prepublishOnly": "tsc -b"
   },
   "dependencies": {
-    "@vura/server": "*",
-    "@vura/build": "*"
+    "@vura/server": "workspace:*",
+    "@vura/build": "workspace:*",
+    "@vura/rpc": "workspace:*"
   },
   "peerDependencies": {
     "vite": "^6.0.0"

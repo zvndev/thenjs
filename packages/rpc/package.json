@@ -22,6 +22,6 @@
     "what-framework": "*"
   },
   "dependencies": {
-    "@vura/schema": "*"
+    "@vura/schema": "workspace:*"
   }
 }

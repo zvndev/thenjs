@@ -9,8 +9,8 @@
     "preview": "vura preview"
   },
   "dependencies": {
-    "vura": "*",
-    "@vura/rpc": "*",
+    "vura": "workspace:*",
+    "@vura/rpc": "workspace:*",
     "what-framework": "^0.4.0",
     "zod": "^3.23.0"
   },
